@@ -1,5 +1,6 @@
 var fs = require("fs")
 var inquirer = require("inquire")
+const generateMarkdown = require("./utils/generateMarkdown");
 const questions = [{
     type:"input",
     message:"what is your Github username?",
@@ -13,7 +14,7 @@ const questions = [{
 {
     type:"input",
     message:"what is your projects name?",
-    name:"projectName",
+    name:"Title",
 },
 {
     type:"input",
@@ -32,29 +33,48 @@ const questions = [{
 },
 {
     type:"input",
-    message:"",
+    default:"",
     name:"",
 },
 {
     type:"input",
-    message:"",
+    default:"",
     name:"",
 },
 {
     type:"input",
-    message:"",
+    default:"",
     name:"",
 },
 
 ];
-
-
+function init() {
 inquirer
  .prompt(questions)
-// function to initialize program
-function init() {
-
+ .then(function(answers){
+    // generateMarkdown(answers)
+ })
 }
+// function generateMarkdown(data) {
+//     return `# ${data.title}
+//   ##Description
+//   ${data.Description}
+//   ##username
+//   ${data.username}
+//   ##emailAddress
+//   ${data.emailAddress}
+//   ##repoUse
+//   ${data.repoUse}
+//   ##contribution
+//   ${data.contribution}
+//   `;
+//   }
+  
+  //module.exports = generateMarkdown;
+  
+
+// function to initialize program
+
 
 // function call to initialize program
 init();
