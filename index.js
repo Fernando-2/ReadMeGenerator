@@ -1,6 +1,6 @@
 const fs = require("fs")
-const inquire = require("inquire")
-const generateMarkdown = require("./utils/generateMarkdown");
+const inquirer = require("inquirer")
+var generatedMarkdown = require("./utils/generateMarkdown.js");
 const questions = [{
     type: "input",
     message: "what is your Github username?",
@@ -32,57 +32,44 @@ const questions = [{
     name: "contribution",
 },
 {
-    type: "input",
-    default: "",
-    name: "",
+    type: "list",
+    message: "Please choose a license you used for this project.",
+    name: "license",
+    choices: [ 'Mozilla Public License 2.0', 'MIT', 'Apache License 2.0']
 },
 {
     type: "input",
-    default: "",
-    name: "",
+    message: "What are the installation instructions for your project?",
+    name: "installation",
+    default: "npm i"
 },
 {
     type: "input",
-    default: "",
-    name: "",
+    message: "Please enter if any testing protocols were used for your project?",
+    name: "test",
+    default: "test",
 },
 
 ];
 function writeToFile(fileName, data) {
-    let inputData = generateMarkdown(data);
-    fs.writeFileSync(fileName, inputData, err => {
-            if (err) {
-                return console(err);
-            }
-        });
+    let inputData = generatedMarkdown(data);
+    fs.writeFile(function (fileName, inputData, err) {
+        if (err) {
+            return console(err);
+        }
+    });
 }
+// function to initialize program
 function init() {
-    inquire
+    inquirer
         .prompt(questions)
-        .then(function (data) {
+        .then(function(data) {
             console.log(JSON.stringify(data, null, 2));
             writeToFile("README.md", data);
         })
 }
-// function generateMarkdown(data) {
-//     return `# ${data.title}
-//    ##Description
-//    ${data.Description}
-//    ##username
-//    ${data.username}
-//    ##emailAddress
-//    ${data.emailAddress}
-//    ##repoUse
-//    ${data.repoUse}
-//    ##contribution
-//    ${data.contribution}
-//    `;
-// }
-
-module.exports = generateMarkdown;
 
 
-// function to initialize program
 
 
 // function call to initialize program
