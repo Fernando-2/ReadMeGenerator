@@ -79,7 +79,7 @@ function init() {
 //    `;
 // }
 
-//module.exports = generateMarkdown;
+module.exports = generateMarkdown;
 
 
 // function to initialize program
