@@ -1,4 +1,4 @@
-const fs = require("fs")
+var fs = require("fs")
 const inquirer = require("inquirer")
 var generatedMarkdown = require("./utils/generateMarkdown.js");
 const questions = [{
@@ -51,25 +51,16 @@ const questions = [{
 },
 
 ];
-function writeToFile(fileName, data) {
-    let inputData = generatedMarkdown(data);
-    fs.writeFile(function (fileName, inputData, err) {
-        if (err) {
-            return console(err);
-        }
-    });
-}
+
 // function to initialize program
 function init() {
     inquirer
         .prompt(questions)
         .then(function(data) {
             console.log(JSON.stringify(data, null, 2));
-            writeToFile("README.md", data);
+            
         })
 }
-
-
 
 
 // function call to initialize program
