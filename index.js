@@ -35,7 +35,7 @@ const questions = [{
     type: "list",
     message: "Please choose a license you used for this project.",
     name: "license",
-    choices: [ 'Mozilla Public License 2.0', 'MIT', 'Apache License 2.0']
+    choices: ['Mozilla Public License 2.0', 'MIT', 'Apache License 2.0']
 },
 {
     type: "input",
@@ -55,12 +55,18 @@ const questions = [{
 // function to initialize program
 function init() {
     inquirer
-        .prompt(questions)
-        .then(function(data) {
-            console.log(JSON.stringify(data, null, 2));
-            
+    .prompt(questions)
+        .then(function (answers) {
+            console.log(JSON.stringify(answers, null, 2));
+            generatedMarkdown(answers);
+            fs.writeFile('README_practice.md', generatedMarkdown(answers), (err) => {
+                if (err) throw err;
+                console.log('The file has been saved!');
+            });
+
         })
 }
+
 
 
 // function call to initialize program

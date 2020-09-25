@@ -1,21 +1,18 @@
-function generateMarkdown(data) {
-   let license = data.license;
-    return `# ${data.title}
+
    ##Description
-   ${data.Description}
+   getting swole and eating crunch bars
    ##username
-   ${data.username}
+   fernando
    ##emailAddress
-   ${data.emailAddress}
+   email@email.com
    ##repoUse
-   ${data.repoUse}
+   they have to work out all hours of the day while coding
    ##contribution
-   ${data.contribution}
+   give me 50% of all your earnings
    ##installation
-   ${data.installation}
+   npm i
    ##License
-   ${mapOfLicenseToBadge.get(license)}
+   [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
    ##test
-   ${data.test}
-   `;
-}
+   test
+   

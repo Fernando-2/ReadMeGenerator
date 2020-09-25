@@ -7,31 +7,28 @@ const mapOfLicenseToBadge = new Map([
     ['Mozilla Public License 2.0', '[![License:](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)']
   
   ]);
-  function generateMarkdown(data) {
-   let license = data.license;
-    return `# ${data.title}
+  function generateMarkdown(answers) {
+   let license = answers.license;
+    return `
    ##Description
-   ${data.Description}
+   ${answers.Description}
    ##username
-   ${data.username}
+   ${answers.username}
    ##emailAddress
-   ${data.emailAddress}
+   ${answers.emailAddress}
    ##repoUse
-   ${data.repoUse}
+   ${answers.repoUse}
    ##contribution
-   ${data.contribution}
+   ${answers.contribution}
    ##installation
-   ${data.installation}
+   ${answers.installation}
    ##License
    ${mapOfLicenseToBadge.get(license)}
    ##test
-   ${data.test}
+   ${answers.test}
    `;
 }
-fs.writeFile('README_practice.md',generateMarkdown,(err) => {
-    if (err) throw err;
-    console.log('The file has been saved!');
-  });
+
 
 module.exports = generateMarkdown;
 
