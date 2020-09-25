@@ -1,8 +1,12 @@
 {
-  "name": "readmegenerator",
+  "name": "ReadMeGenerator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/Fernando-2/ReadMeGenerator.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Fernando-2/ReadMeGenerator/issues"
   },
-  "homepage": "https://github.com/Fernando-2/ReadMeGenerator#readme",
-  "dependencies": {
-    "inquire": "^0.4.8"
-  }
+  "homepage": "https://github.com/Fernando-2/ReadMeGenerator#readme"
 }

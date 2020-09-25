@@ -1,5 +1,5 @@
 const fs = require("fs")
-const inquirer = require("inquire")
+const inquire = require("inquire")
 const generateMarkdown = require("./utils/generateMarkdown");
 const questions = [{
     type: "input",
@@ -50,15 +50,14 @@ const questions = [{
 ];
 function writeToFile(fileName, data) {
     let inputData = generateMarkdown(data);
-    fs
-        .writeFileSync(fileName, inputData, err => {
+    fs.writeFileSync(fileName, inputData, err => {
             if (err) {
                 return console(err);
             }
         });
 }
 function init() {
-    inquirer
+    inquire
         .prompt(questions)
         .then(function (data) {
             console.log(JSON.stringify(data, null, 2));
@@ -80,7 +79,7 @@ function init() {
 //    `;
 // }
 
-module.exports = generateMarkdown;
+//module.exports = generateMarkdown;
 
 
 // function to initialize program
